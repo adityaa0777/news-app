@@ -7,27 +7,28 @@ const newsapp = () => {
     const [search, setSearch] = useState("virat kohli");
     const [newsData, setNewsData] = useState(null)
     const [loading, setLoading] = useState(false);
-    const API_KEY = "5c0179d25ee0439e9f50155665883261";
+    const API_KEY = "pub_875800084cc53847a44cdeb6c7811fd89792d";
 
     
  const fetchData = async (query) => {
-    setLoading(true);
-    try {
-        const response = await fetch(`http://newsapi.org/v2/everything?q=${query}&apiKey=${API_KEY}`);
-        const jsonData = await response.json();
+  setLoading(true);
+  try {
+    const response = await fetch(`https://newsdata.io/api/1/latest?apikey=${API_KEY}&q=${query}`);
+    const jsonData = await response.json();
 
-        if (jsonData.articles && jsonData.articles.length > 0) {
-            const articles = jsonData.articles.slice(0, 10);
-            setNewsData(articles);
-        } else {
-            setNewsData([]); 
-        }
-    } catch (error) {
-        console.error("Error fetching data:", error);
-        setNewsData([]); 
+    if (jsonData.results && jsonData.results.length > 0) {
+      const articles = jsonData.results.slice(0, 10);
+      setNewsData(articles);
+    } else {
+      setNewsData([]); 
     }
-    setLoading(false);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    setNewsData([]); 
+  }
+  setLoading(false);
 };
+
 
 const getData = () => {
     fetchData(search);
