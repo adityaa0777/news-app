@@ -13,7 +13,7 @@ const newsapp = () => {
  const fetchData = async (query) => {
     setLoading(true);
     try {
-        const response = await fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=${API_KEY}`);
+        const response = await fetch(`http://newsapi.org/v2/everything?q=${query}&apiKey=${API_KEY}`);
         const jsonData = await response.json();
 
         if (jsonData.articles && jsonData.articles.length > 0) {
