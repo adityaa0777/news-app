@@ -48,6 +48,7 @@ const leftpanel = () => {
 
       <h3>🌤️ Weather</h3>
       <form onSubmit={handleCitySubmit} style={{ marginBottom: "10px" }}>
+        <div style={{display:'flex',columnGap:'7px'}}>
         <input
           type="text"
           placeholder="Enter city name"
@@ -55,6 +56,7 @@ const leftpanel = () => {
           onChange={(e) => setCity(e.target.value)}
           className="inp"></input>
         <button type="submit" id="btn">Go</button>
+        </div>
       </form>
 
       {weather ? (
