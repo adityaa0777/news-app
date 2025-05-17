@@ -3,23 +3,15 @@ import React, { useEffect, useState } from 'react';
 import '../css/leftpanel.css';
 
 const WEATHER_API_KEY = "cd42104f125bcd9c90cd293e32cf98bf";
-const NEWS_API_KEY = "5c0179d25ee0439e9f50155665883261";
 
-const LeftPanel = () => {
+
+const leftpanel = () => {
 
   const [city, setCity] = useState("Delhi");
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState(null);
 
-  const fetchNews = async () => {
-    try {
-      const res = await fetch(`https://newsapi.org/v2/top-headlines?country=in&apiKey=${NEWS_API_KEY}`);
-      const data = await res.json();
-      setLatestNews(data.articles.slice(0, 5));
-    } catch (err) {
-      console.error("News fetch error", err);
-    }
-  };
+
 
   
   const fetchWeatherByCity = async (cityName) => {
@@ -42,7 +34,7 @@ const LeftPanel = () => {
   };
 
   useEffect(() => {
-    fetchNews();
+   
     fetchWeatherByCity(city);
   }, []);
 
@@ -82,4 +74,4 @@ const LeftPanel = () => {
   );
 };
 
-export default LeftPanel;
+export default leftpanel;

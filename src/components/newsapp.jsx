@@ -3,7 +3,7 @@ import Card from './card'
 import "../css/newsapp.css"
 import LeftPanel from './leftpanel';
 
-const Newsapp = () => {
+const newsapp = () => {
     const [search, setSearch] = useState("virat kohli");
     const [newsData, setNewsData] = useState(null)
     const [loading, setLoading] = useState(false);
@@ -92,4 +92,4 @@ const getData = () => {
   )
 }
 
-export default Newsapp
+export default newsapp;

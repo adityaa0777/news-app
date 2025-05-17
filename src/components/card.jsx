@@ -1,6 +1,6 @@
 import React from 'react'
 import "../css/card.css"
-const Card = ({data}) => {
+const card = ({data}) => {
      console.log(data);
 
      const readMore = (url) =>{
@@ -30,4 +30,4 @@ const Card = ({data}) => {
   )
 }
 
-export default Card
+export default card
